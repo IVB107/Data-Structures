@@ -52,7 +52,20 @@ class BinarySearchTree:
     # 2. return false
 
   def get_max(self):
-    pass
+    if self.value == None:
+      return False
+    current = self
+    highest_val = current.value
+
+    while current.value is not None:
+      highest_val = current.value
+      if current.right == None:
+        return highest_val
+      current = current.right
+      
+    # 0. if current.value == None -> return False
+    # 1. if current.right == None -> return max_val
+    # 2. if current.right is not None -> current = current.right
 
   def for_each(self, cb):
     pass

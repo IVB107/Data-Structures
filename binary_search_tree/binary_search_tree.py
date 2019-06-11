@@ -7,7 +7,7 @@ class BinarySearchTree:
   def insert(self, value):
     if self.value == None:
       self = BinarySearchTree(value)
-      
+
     current = self
     while current.value is not None:
 
@@ -22,21 +22,34 @@ class BinarySearchTree:
           return
         current = current.right
 
-
-    # self.value = value
-    # self.left = None
-    # self.right = None
-
-    # 1. check current_node value
-    # 2. if new node is greater than root -> move down right side 
-    # 3. if new node is less than root -> move down left side 
-    # 4. if no child exists (None), current_node.side = new_node.value
-    #   4a. new_node.left = None
-    #   4b. new_node.right = None
-    # 5. continue (repeat)
+    # 0. check current_node value
+    # 1a. if new node is greater than root -> move down right side 
+    # 1b. if new node is less than root -> move down left side 
+    # 2. if no child exists (None), current_node.side = new_node.value
+    #   2a. new_node.left = None
+    #   2b. new_node.right = None
+    # 3. continue (repeat)
 
   def contains(self, target):
-    pass
+    current = self
+
+    while current.value is not None:
+      if target == current.value:
+        return True
+      if target < current.value:
+        if current.left == None:
+          return False
+        current = current.left
+      elif target > current.value:
+        if current.right == None:
+          return False
+        current = current.right
+
+    # 0. while current_val is not None
+    # 1. if val == current_val -> return True
+    # 1a. if value is greater than current_val -> move down right side
+    # 1b. if value is less than current_val -> move down left side
+    # 2. return false
 
   def get_max(self):
     pass

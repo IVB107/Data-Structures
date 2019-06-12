@@ -68,4 +68,15 @@ class BinarySearchTree:
     # 2. if current.right is not None -> current = current.right
 
   def for_each(self, cb):
-    pass
+    current = self
+    cb(current.value)
+
+    if current.left != None:
+      current.left.for_each(cb)
+    if current.right != None:
+      current.right.for_each(cb)
+    return
+
+    # 1. if left: visit left
+    # 2. visit current
+    # 3. if right: visit right side

@@ -5,22 +5,37 @@ class BinarySearchTree:
     self.right = None
 
   def insert(self, value):
-    if self.value == None:
-      self = BinarySearchTree(value)
+    # Recursive solution:
 
     current = self
-    while current.value is not None:
+    if value < current.value:
+      if current.left == None:
+        current.left = BinarySearchTree(value)
+        return
+      current.left.insert(value)
+    elif value > current.value:
+      if current.right == None:
+        current.right = BinarySearchTree(value)
+        return
+      current.right.insert(value)
 
-      if value < current.value:
-        if current.left == None:
-          current.left = BinarySearchTree(value)
-          return
-        current = current.left
-      elif value > current.value:
-        if current.right == None:
-          current.right = BinarySearchTree(value)
-          return
-        current = current.right
+    # Non-recursive solution:
+    # if self.value == None:
+    #   self = BinarySearchTree(value)
+
+    # current = self
+    # while current.value is not None:
+
+    #   if value < current.value:
+    #     if current.left == None:
+    #       current.left = BinarySearchTree(value)
+    #       return
+    #     current = current.left
+    #   elif value > current.value:
+    #     if current.right == None:
+    #       current.right = BinarySearchTree(value)
+    #       return
+    #     current = current.right
 
     # 0. check current_node value
     # 1a. if new node is greater than root -> move down right side 

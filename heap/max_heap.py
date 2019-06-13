@@ -3,7 +3,21 @@ class Heap:
     self.storage = []
 
   def insert(self, value):
-    pass
+    # 0. append value to array:
+    index = len(self.storage)
+    self.storage.append(value)
+
+    while index > 0:
+      # 1. compare value to parent:
+      parent = (index-1)//2
+      # 2. if value > parent -> swap values 
+      if self.storage[index] > self.storage[parent]:
+        self.storage[index], self.storage[parent] = self.storage[parent], self.storage[index]
+        index = (index-1)//2
+      # 3. if value <= parent -> return 
+      elif self.storage[index] <= self.storage[parent]:
+        break
+
 
   def delete(self):
     pass

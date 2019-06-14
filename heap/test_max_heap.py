@@ -30,6 +30,7 @@ class HeapTests(unittest.TestCase):
     self.assertEqual(self.heap.get_max(), 10)
 
   def test_get_max_after_delete(self):
+    # print('TEST A')
     self.heap.insert(6)
     self.heap.insert(8)
     self.heap.insert(10)
@@ -50,6 +51,7 @@ class HeapTests(unittest.TestCase):
     self.assertEqual(self.heap.get_max(), 6)
 
   def test_delete_elements_in_order(self):
+    # print('TEST B')
     self.heap.insert(6)
     self.heap.insert(7)
     self.heap.insert(5)
